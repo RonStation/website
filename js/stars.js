@@ -42,17 +42,17 @@ for(let i=0;i<700;i++) {
     let size;
 
     if(layer === 0) {
-        speed = rand(1,5);
+        speed = rand(0.5, 2);
         size = rand(0.5,1.5);
     }
 
     if(layer === 1) {
-        speed = rand(3,10);
+        speed = rand(2,4);
         size = rand(1,2.5);
     }
 
     if(layer === 2) {
-        speed = rand(7,15);
+        speed = rand(5, 10);
         size = rand(1.5,4);
     }
 
@@ -85,12 +85,13 @@ function draw() {
         ctx.shadowBlur = s.size * 3;
         ctx.shadowColor = s.color;
 
-        ctx.arc(
-            s.x,
-            s.y,
-            s.size,
-            0,
-            Math.PI*2
+        const pixelSize = s.size * 1.3;
+
+        ctx.fillRect(
+            s.x - pixelSize / 2,
+            s.y - pixelSize / 2,
+            pixelSize,
+            pixelSize
         );
 
         ctx.fill();
